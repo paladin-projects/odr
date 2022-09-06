@@ -10,7 +10,7 @@ Homepage: https://github.com/tzong/odr
 Rules-Requires-Root: no
 
 Package: odr
-Architecture: any
+Architecture: all
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Onsite Data Recorder
  Onsite Data Recorder stores performance data from storage arrays
