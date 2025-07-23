@@ -5,7 +5,7 @@ import logging
 from pprint import pprint
 
 logger = logging.getLogger("odr-fab")
-FORMAT = "%(asctime)s %(name)s %(process)d - - %(message)s"
+FORMAT = "%(asctime)s %(levelname)s %(name)s %(process)d - - %(message)s"
 
 config_commands = [
         "showsys -d",
