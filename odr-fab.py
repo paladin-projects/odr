@@ -35,8 +35,8 @@ def get_config(ctx, filename):
     for i in config_commands:
         result = ctx.run(i, hide=True)
         if result.return_code != 0:
-            logger.error(f"Command '{i}' failed with return code {result.return_code}", file=sys.stderr)
-            logger.error(result.stderr, file=sys.stderr)
+            logger.error(f"Command '{i}' failed with return code {result.return_code}")
+            logger.error(result.stderr)
         else:
             f.write("----- " + i + " -----\n")
             f.write(result.stdout)
