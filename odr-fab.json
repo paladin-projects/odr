@@ -1,5 +1,14 @@
 {
-	"host": "host",
-	"user": "user",
-	"password": "wadayapaswoid"
+  "log_file": "odr-fab.log",
+  "iterations": 960,
+  "duration": 15,
+  "systems": [
+    {
+      "name": "primera1",
+      "type": "primera",
+      "host": "host",
+      "user": "user",
+      "password": "wadayapaswoid"
+    }
+  ]
 }
