@@ -45,7 +45,7 @@ def config_fetch(system):
         },
     })
     # Create connection to system
-    with Connection(host=system.host, user=system.user, connect_kwargs={"password": system["password"]}, config=cfg) as conn:
+    with Connection(host=system["host"], user=system["user"], connect_kwargs={"password": system["password"]}, config=cfg) as conn:
         try:
             result = conn.open()
             logger.info(f"Connection result: {result}")
@@ -103,7 +103,7 @@ def main():
 #    thread_pools = {}
 #    for system in config["systems"]:
 #        thread_pools[system] = ThreadPoolExecutor(max_workers=config["max_workers"])
-    config_fetch(config.systems[0])
+    config_fetch(config["systems"][0])
     logger.info("Stop logging")
 
 if __name__ == "__main__":
