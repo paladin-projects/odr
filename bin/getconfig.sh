@@ -2,9 +2,13 @@
 # Get configuration file directly from controller without using SP
 # by mcwees at hpe dot com
 # started at 03.08.2020
+# v 0.4 - Add showcage -all command @Tzong
 # v 0.3 - Add doctype header to out file
 # v 0.2 - 2>&1 redirect added
 # v 0.1 - initial version
+
+# Get config
+. $HOME/bin/odr.conf
 
 commands=("controlencryption status" \
 "controlrecoveryauth status" \
@@ -58,6 +62,7 @@ commands=("controlencryption status" \
 "showwsapi" \
 "showwsapisession" \
 "showcage -d" \
+"showcage -all" \
 "showcage -sfp" \
 "showcage -sfp -d" \
 "showcage -sfp -ddm" \
@@ -104,8 +109,7 @@ commands=("controlencryption status" \
 "srcpgspace -hourly -btsecs -12h" \
 "srvvspace -hourly -btsecs -12h")
 
-shell="/usr/bin/ssh "
-SN=`$shell 3paradm@$1 showsys -d | grep "Serial Number" | \
+SN=`$CLI $CLIUSER@$1 showsys -d | grep "Serial Number" | \
 	sed -e "s/^.*://" -e "s/^ *//"`
 DATE="some-date"
 
@@ -132,6 +136,7 @@ a {font-size: 10pt}
   <TR>
     <TD width=250><A href="#controlencryptionstatus">controlencryption status</A></TD>
     <TD width=250><A href="#showcaged">showcage -d</A></TD>
+    <TD width=250><A href="#showcageall">showcage -all</A></TD>
     <TD width=250><A href="#showcpg">showcpg</A></TD>
   </TR>
   <TR>
@@ -391,19 +396,18 @@ a {font-size: 10pt}
   </TR>
 </TABLE><BR>
 "
- 
- 
+
+
 for i in ${!commands[*]}
 do
 	link=`echo ${commands[$i]} | sed -e "s/ //g" -e "s/-//g"`
 	echo
 	echo "<a href='#top'>top</a><a name=$link></a>"
 	echo "   ----- ${commands[$i]} -----"
-	$shell 3paradm@$1 ${commands[$i]} 2>&1
+	$CLI $CLIUSER@$1 ${commands[$i]} 2>&1
 done
 
 echo "
 </pre>
 </body></html>
 "
-
