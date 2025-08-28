@@ -23,8 +23,6 @@
 #
 DAY=`date +"%Y.%m.%d"`
 DATE=`date +"%Y%m%d.%H%M"`
-ME=`whoami`
-HOME=`getent passwd $ME | cut -d: -f6`
 
 # Get config
 . $HOME/bin/odr.conf
@@ -121,5 +119,3 @@ else
 	rm -rf $B
 	rm config-$V-$DAY-$T
 fi
-
-
