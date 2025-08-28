@@ -74,6 +74,7 @@ DELAY=15        # Delay between iterations,
 		# ITER * DELAY is always must be 4 hours!
 REMOVE=31       # Remove files above 31 days old
 CLI=$CLI
+CLIUSER=$USER
 HOME=$HOME
 DATA=$HOME/data
 DATAPOINT=
