@@ -1,18 +1,17 @@
-BODY {  font-family : "HP Simplified", Helvetica, Arial;
+body {  font-family : Helvetica, Arial;
         font-size : 10pt;
         font-weight: normal;
 }
 
-TR {    font-family : "HP Simplified", Helvetica, Arial;
+tr {    font-family : Helvetica, Arial;
         font-size : 10pt;
 }
 
-TD {    padding : 1pt;
+td {    padding : 1pt;
         padding-left: 12pt;
 }
 
-H3 {    font-family : "HP Simplified", Helvetica, Arial;
+h3 {    font-family : Helvetica, Arial;
         font-size : 12pt;
         font-weight: normal;
 }
-
