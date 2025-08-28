@@ -1,7 +1,5 @@
 #!/bin/bash
 
-ME=`whoami`
-HOME=`getent passwd $ME | cut -d: -f6`
 . $HOME/bin/odr.conf
 
 j=`date "+%s"`
@@ -13,4 +11,3 @@ then
         logger "Remove $REMOVE days old directory $l"
         rm -rf $DATA/$l
 fi
-
