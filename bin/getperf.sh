@@ -25,7 +25,7 @@ DAY=`date +"%Y.%m.%d"`
 DATE=`date +"%Y%m%d.%H%M"`
 
 # Get config
-. $HOME/bin/odr.conf
+. $HOME/odr.conf
 
 # Get home
 # Location of CLI executable file on SP

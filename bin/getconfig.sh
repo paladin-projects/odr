@@ -8,7 +8,7 @@
 # v 0.1 - initial version
 
 # Get config
-. $HOME/bin/odr.conf
+. $HOME/odr.conf
 
 commands=("controlencryption status" \
 "controlrecoveryauth status" \
