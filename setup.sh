@@ -41,14 +41,18 @@ fi
 # Prepare Web Server configs - separate for Apache and Nginx/Angie
 if [ -f "/etc/apache2/apache2.conf" ]; then
     echo "Apache web server found"
-    sed -e "s/%%HOME%%/$HOME/" apache2-odr-http.conf > odr-http.conf
+    sed -e "s|%%HOME%%|$HOME|" apache2-odr-http.conf > odr-http.conf
     echo "Configuration file for Apache web server prepared: odr-http.conf."
     echo "Edit it as needed."
     echo "Put it into /etc/apache2/sites-available/odr-http.conf and enable it with sudo a2ensite odr-http.conf"
     echo "Then restart Apache web server with systemctl restart apache2."
 elif [ -f "/etc/nginx/nginx.conf" ]; then
     echo "Nginx web server found"
-    sed -e "s/%%HOME%%/$HOME/" nginx-odr-http.conf > odr-http.conf
+    sed -e "s|%%HOME%%|$HOME|" nginx-odr-http.conf > odr-http.conf
+    echo "Configuration file for Nginx web server prepared: odr-http.conf."
+    echo "Edit it as needed."
+    echo "Put it into /etc/nginx/sites-available/odr-http.conf and enable it with sudo ln -s /etc/nginx/sites-available/odr-http.conf /etc/nginx/sites-enabled/"
+    echo "Then restart Nginx web server with systemctl restart nginx."
 elif [ -f "/etc/angie/angie.conf" ]; then
     echo "Angie web server found"
     # Prepare Angie configs
