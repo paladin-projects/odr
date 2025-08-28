@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /home/odr3par/bin/odr.conf
+. $HOME/bin/odr.conf
 
 df -h | awk -v data=$DATAPOINT '
 $6 == data {
@@ -9,4 +9,3 @@ $6 == data {
   print "Used: " $5
   print "</pre></p>"
 }' > $DATA/.storstat
-
