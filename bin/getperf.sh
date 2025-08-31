@@ -57,42 +57,42 @@ mkdir $B
 # Stat for vluns
  CMD="statvlun -rw -iter $ITER -d $DELAY"
  echo "$CMD ***" > $B/statvlun.out.$DATE 2>&1
- $CLI 3paradm@$J $CMD >> $B/statvlun.out.$DATE 2>&1 &
+ $CLI $CLIUSER@$J $CMD >> $B/statvlun.out.$DATE 2>&1 &
 
 # Stat for host ports
  CMD="statport -host -rw -iter $ITER -d $DELAY"
  echo "$CMD ***" > $B/statport-host.out.$DATE 2>&1
- $CLI 3paradm@$J $CMD >> $B/statport-host.out.$DATE 2>&1 &
+ $CLI $CLIUSER@$J $CMD >> $B/statport-host.out.$DATE 2>&1 &
 
 # Stat for disk ports
  CMD="statport -disk -rw -iter $ITER -d $DELAY"
  echo "$CMD ***" > $B/statport-disk.out.$DATE 2>&1
- $CLI 3paradm@$J $CMD >> $B/statport-disk.out.$DATE 2>&1 &
+ $CLI $CLIUSER@$J $CMD >> $B/statport-disk.out.$DATE 2>&1 &
 
 # Stat cache usage
  CMD="statcmp -iter $ITER -d $DELAY"
  echo "CMD ***" > $B/statcmp.out.$DATE 2>&1
- $CLI 3paradm@$J $CMD >> $B/statcmp.out.$DATE 2>&1 &
+ $CLI $CLIUSER@$J $CMD >> $B/statcmp.out.$DATE 2>&1 &
 
 # Stat CPU
  CMD="statcpu -iter $ITER -d $DELAY"
  echo "$CMD ***" > $B/statcpu.out.$DATE 2>&1
- $CLI 3paradm@$J $CMD >> $B/statcpu.out.$DATE 2>&1 &
+ $CLI $CLIUSER@$J $CMD >> $B/statcpu.out.$DATE 2>&1 &
 
 # Stat physical disks
  CMD="statpd -rw -iter $ITER -d $DELAY -devinfo"
  echo "$CMD ***" > $B/statpd.out.$DATE 2>&1
- $CLI 3paradm@$J $CMD >> $B/statpd.out.$DATE 2>&1 &
+ $CLI $CLIUSER@$J $CMD >> $B/statpd.out.$DATE 2>&1 &
 
 # Stat replica ports
  CMD="statport -rcfc -iter $ITER -d $DELAY"
  echo "$CMD ***" > $B/statport-rcfc.out.$DATE 2>&1
- $CLI 3paradm@$J $CMD >> $B/statport-rcfc.out.$DATE 2>&1 &
+ $CLI $CLIUSER@$J $CMD >> $B/statport-rcfc.out.$DATE 2>&1 &
 
 # Unused at this time
 # CMD="statrcopy -iter $ITER -d $DELAY"
 # echo "$CMD ***" > $B/statrcopy.out.$DATE 2>&1
-# $CLI 3paradm@$J $CMD >> $B/statrcopy.out.$I 2>&1 &
+# $CLI $CLIUSER@$J $CMD >> $B/statrcopy.out.$DATE 2>&1 &
 
 #
 # Wait for the stat commands will be finished
