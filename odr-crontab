@@ -1,2 +1,2 @@
-10 22 * * * ~/bin/removeday.sh"
-*/15 * * * * ~/bin/storecalc.sh"
+10 22 * * * ~/bin/removeday.sh
+*/15 * * * * ~/bin/storecalc.sh
