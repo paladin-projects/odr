@@ -24,6 +24,15 @@ else
     ssh-keygen -q -t rsa -N '' -f ~/.ssh/odr <<<y 2>&1 >/dev/null
 fi
 
+echo "Checking SSH config..."
+if [ -f "$HOME/.ssh/config" ]; then
+    echo "SSH config was found"
+else
+    echo "Generating SSH config..."
+    echo "Host *" > ~/.ssh/config
+    echo "    IdentityFile ~/.ssh/odr" >> ~/.ssh/config
+fi
+
 echo "Check target array for SSH key registration with showsshkey command."
 echo "If the key is not registered, please register it manually with setsshkey command."
 echo "Use contents of ~/.ssh/odr.pub file."
