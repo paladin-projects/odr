@@ -11,7 +11,7 @@ Onsite Data Recorder is a suite of scripts to collect performance data and confi
 ## 3PAR/Primera/Alletra9K/AlletraMP
 1. Create user with "browse" role:
 ```
-createuser odr default service
+createuser odr default browse
 ```
 2. Login as the user created in step 1.
 3. Add ODR public SSH key with `setsshkey -add` command.
