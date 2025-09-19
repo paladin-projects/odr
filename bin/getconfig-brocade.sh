@@ -10,12 +10,16 @@
 ip=$1
 
 commands=("switchshow" \
-"fdmishow" \
-"nsshow" \
-"licenseshow" \
-"sfpshow" \
-"sfpshow -all" \
-"chassisshow")
+    "fabricshow" \
+    "firmwareshow" \
+    "fdmishow" \
+    "nsshow" \
+    "zone --validate" \
+    "licenseshow" \
+    "sfpshow" \
+    "sfpshow -all" \
+    "showipaddr" \
+    "chassisshow")
 
 SN=`$CLI $CLIUSER@$ip chassisshow | grep "Serial Num" | awk "{print $NF}" | tail -n 1`
 
