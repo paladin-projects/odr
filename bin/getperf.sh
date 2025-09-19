@@ -44,12 +44,6 @@ WD="$DATA/$DAY/$V"
 test -d "$WD" || mkdir -p $WD
 cd $WD
 
-# Historical data...
-# N -> ITER
-# D -> DELAY
-# M -> ITER
-# C -> DELAY
-
 # Directory for perf data - B
 B=PerfAnalysis.$V.$DATE
 mkdir $B
@@ -57,50 +51,42 @@ mkdir $B
 # Stat for vluns
  CMD="statvlun -rw -iter $ITER -d $DELAY"
  echo "$CMD ***" > $B/statvlun.out.$DATE 2>&1
- $CLI $CLIUSER@$J $CMD >> $B/statvlun.out.$DATE 2>&1 &
+ $CLI $J $CMD >> $B/statvlun.out.$DATE 2>&1 &
 
 # Stat for host ports
  CMD="statport -host -rw -iter $ITER -d $DELAY"
  echo "$CMD ***" > $B/statport-host.out.$DATE 2>&1
- $CLI $CLIUSER@$J $CMD >> $B/statport-host.out.$DATE 2>&1 &
+ $CLI $J $CMD >> $B/statport-host.out.$DATE 2>&1 &
 
 # Stat for disk ports
  CMD="statport -disk -rw -iter $ITER -d $DELAY"
  echo "$CMD ***" > $B/statport-disk.out.$DATE 2>&1
- $CLI $CLIUSER@$J $CMD >> $B/statport-disk.out.$DATE 2>&1 &
+ $CLI $J $CMD >> $B/statport-disk.out.$DATE 2>&1 &
 
 # Stat cache usage
  CMD="statcmp -iter $ITER -d $DELAY"
  echo "CMD ***" > $B/statcmp.out.$DATE 2>&1
- $CLI $CLIUSER@$J $CMD >> $B/statcmp.out.$DATE 2>&1 &
+ $CLI $J $CMD >> $B/statcmp.out.$DATE 2>&1 &
 
 # Stat CPU
  CMD="statcpu -iter $ITER -d $DELAY"
  echo "$CMD ***" > $B/statcpu.out.$DATE 2>&1
- $CLI $CLIUSER@$J $CMD >> $B/statcpu.out.$DATE 2>&1 &
+ $CLI $J $CMD >> $B/statcpu.out.$DATE 2>&1 &
 
 # Stat physical disks
  CMD="statpd -rw -iter $ITER -d $DELAY -devinfo"
  echo "$CMD ***" > $B/statpd.out.$DATE 2>&1
- $CLI $CLIUSER@$J $CMD >> $B/statpd.out.$DATE 2>&1 &
+ $CLI $J $CMD >> $B/statpd.out.$DATE 2>&1 &
 
 # Stat replica ports
  CMD="statport -rcfc -iter $ITER -d $DELAY"
  echo "$CMD ***" > $B/statport-rcfc.out.$DATE 2>&1
- $CLI $CLIUSER@$J $CMD >> $B/statport-rcfc.out.$DATE 2>&1 &
+ $CLI $J $CMD >> $B/statport-rcfc.out.$DATE 2>&1 &
 
-# Unused at this time
-# CMD="statrcopy -iter $ITER -d $DELAY"
-# echo "$CMD ***" > $B/statrcopy.out.$DATE 2>&1
-# $CLI $CLIUSER@$J $CMD >> $B/statrcopy.out.$DATE 2>&1 &
-
-#
 # Wait for the stat commands will be finished
 wait
 
-#
-# Get array config here
-#
+# Get array config
 T=`date +"%Y-%m-%d-%H%M"`
 $HOME/bin/getconfig.sh $J 2>&1 > config-$V-$DAY-$T
 
@@ -108,8 +94,6 @@ $HOME/bin/getconfig.sh $J 2>&1 > config-$V-$DAY-$T
 tar -cjf ${B}.tbz2 $B config-$V-$DAY-$T
 tarRC=$?
 
-# Тут надо обговорить - что делаем, если архив не собрался.
-#
 if [ $tarRC -eq 0 ]
 then
 	rm -rf $B
