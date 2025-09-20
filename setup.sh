@@ -30,6 +30,9 @@ if [ -f "$HOME/.ssh/config" ]; then
 else
     echo "Generating SSH config..."
     echo "Host *" > ~/.ssh/config
+    echo "    ControlMaster auto" >> ~/.ssh/config
+    echo "    ControlPath ~/.ssh/odr-%r@%h:%p" >> ~/.ssh/config
+    echo "    ControlPersist yes" >> ~/.ssh/config
     echo "    IdentityFile ~/.ssh/odr" >> ~/.ssh/config
 fi
 
