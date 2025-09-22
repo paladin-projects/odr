@@ -88,7 +88,7 @@ wait
 
 # Get array config
 T=`date +"%Y-%m-%d-%H%M"`
-$HOME/bin/getconfig.sh $J 2>&1 > config-$V-$DAY-$T
+getconfig.sh $J 2>&1 > config-$V-$DAY-$T
 
 # Package up the data
 tar -cjf ${B}.tbz2 $B config-$V-$DAY-$T
