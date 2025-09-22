@@ -34,7 +34,7 @@ timeout $((DELAY * ITER)) $CLI $CLIUSER@$ip $CMD >> $perfdir/portperf.out.$DATE 
 
 # Get switch config
 datetime=`date +"%Y-%m-%d-%H%M"`
-$HOME/bin/getconfig-brocade.sh $ip 2>&1 > config-$switch-$DAY-$datetime
+getconfig-brocade.sh $ip 2>&1 > config-$switch-$DAY-$datetime
 
 # Pack data
 tar -cjf ${perfdir}.tbz2 $perfdir config-$switch-$DAY-$datetime
