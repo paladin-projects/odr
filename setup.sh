@@ -84,7 +84,7 @@ ret=$?
 if [ $ret -eq 1 ]; then
     echo "No crontab entries found, adding ODR default entries"
     crontab odr-crontab
-elif [ $ret -eq 0 && `echo "$CRONTAB" | grep -q "storecalc.sh"` ]; then
+elif [ $ret -eq 0 ] && `echo "$CRONTAB" | grep -q "storecalc.sh"` ; then
     echo "ODR crontab entries found, skipping"
 fi
 
