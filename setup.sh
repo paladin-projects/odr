@@ -17,10 +17,10 @@ for i in ${PREREQ[*]}; do
 done
 
 echo "Checking for configuration file..."
-if [ ! -d "$HOME/.config/odr"]; then
+if [ ! -d "$HOME/.config/odr" ]; then
         mkdir -p $HOME/.config/odr
 fi
-if [ -f "$HOME/.config/odr/odr.conf"]; then
+if [ -f "$HOME/.config/odr/odr.conf" ]; then
         echo "Configuration file exists. Please, check ~/.config/odr/odr.conf contents and apply changes as needed"
 else
         cp ./odr.conf $HOME/.config/odr
@@ -73,7 +73,7 @@ for i in `ls -1 ./bin` ; do
 	fi
 	if [ $ret -eq 1 ]; then
 		echo "Copying $i to ~/.local/bin"
-		cp $i ~/.local/bin
+		cp "./bin/$i" ~/.local/bin
 	fi
 done
 

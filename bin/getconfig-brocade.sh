@@ -21,11 +21,11 @@ commands=("switchshow" \
     "showipaddr" \
     "chassisshow")
 
-SN=`$CLI $CLIUSER@$ip chassisshow | grep "Serial Num" | awk "{print $NF}" | tail -n 1`
+SN=`$CLI $ip chassisshow | grep "Serial Num" | awk "{print $NF}" | tail -n 1`
 
 for i in ${!commands[*]}
 do
 	echo "### ${commands[$i]} ###"
-	$CLI $CLIUSER@$ip ${commands[$i]} 2>&1
+	$CLI $ip ${commands[$i]} 2>&1
 	echo
 done
