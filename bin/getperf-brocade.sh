@@ -18,7 +18,7 @@ switch=$1
 ip=$2
 
 # Workdir
-workdir="$DATA/$DAY/$V"
+workdir="$DATA/$DAY/$switch"
 # Create if not exists
 test -d "$workdir" || mkdir -p $workdir
 cd $workdir
