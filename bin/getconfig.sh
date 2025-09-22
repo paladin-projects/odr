@@ -109,7 +109,7 @@ commands=("controlencryption status" \
 "srcpgspace -hourly -btsecs -12h" \
 "srvvspace -hourly -btsecs -12h")
 
-SN=`$CLI $CLIUSER@$1 showsys -d | grep "Serial Number" | \
+SN=`$CLI $1 showsys -d | grep "Serial Number" | \
 	sed -e "s/^.*://" -e "s/^ *//"`
 DATE="some-date"
 
@@ -404,7 +404,7 @@ do
 	echo
 	echo "<a href='#top'>top</a><a name=$link></a>"
 	echo "   ----- ${commands[$i]} -----"
-	$CLI $CLIUSER@$1 ${commands[$i]} 2>&1
+	$CLI $1 ${commands[$i]} 2>&1
 done
 
 echo "
