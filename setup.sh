@@ -68,6 +68,7 @@ for i in `ls -1 ./bin` ; do
 	ii=`which $i`
 	ret=$?
 	if [ $ret -eq 0 -a -n $ii ]; then
+		echo "Comparing $i to $ii"
 		cmp -s $i $ii
 		ret=$?
 	fi
