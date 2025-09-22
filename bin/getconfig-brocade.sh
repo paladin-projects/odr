@@ -21,7 +21,7 @@ commands=("switchshow" \
     "showipaddr" \
     "chassisshow")
 
-SN=`$CLI $ip chassisshow | grep "Serial Num" | awk "{print $NF}" | tail -n 1`
+#SN=`$CLI $ip chassisshow | grep "Serial Num" | awk '{print $NF}' | tail -n 1`
 
 for i in ${!commands[*]}
 do
