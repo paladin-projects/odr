@@ -9,7 +9,7 @@ DAY=`date +"%Y.%m.%d"`
 DATE=`date +"%Y%m%d.%H%M"`
 
 # Get ODR config
-. $HOME/odr.conf
+. $HOME/.config/odr/odr.conf
 
 # System Serial of the Brocade switch to collect for
 switch=$1

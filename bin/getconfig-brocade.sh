@@ -4,7 +4,7 @@
 # usage:  getconfig-brocade.sh switch_ip
 
 # Get ODR config
-. $HOME/odr.conf
+. $HOME/.config/odr/odr.conf
 
 # IP of the Brocade switch to collect for
 ip=$1

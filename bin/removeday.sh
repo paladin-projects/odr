@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $HOME/odr.conf
+. $HOME/.config/odr/odr.conf
 
 j=`date "+%s"`
 e=`echo "$j-($REMOVE*24*3600)" | bc -l`

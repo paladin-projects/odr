@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. $HOME/odr.conf
+. $HOME/.config/odr/odr.conf
 
 df -h | awk -v data=$DATAPOINT '
 $6 == data {
