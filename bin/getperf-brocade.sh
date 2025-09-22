@@ -30,7 +30,7 @@ mkdir $perfdir
 # Port stats
 CMD="portperfshow -tx -rx -t $DELAY"
 echo "$CMD ***" > $perfdir/portperf.out.$DATE 2>&1
-timeout $((DELAY * ITER)) $CLI $ip $CMD >> $perfdir/portperf.out.$DATE 2>&1 &
+timeout $((DELAY * ITER)) $CLI $ip $CMD >> $perfdir/portperf.out.$DATE 2>&1
 
 # Get switch config
 datetime=`date +"%Y-%m-%d-%H%M"`
