@@ -69,7 +69,7 @@ for i in `ls -1 ./bin` ; do
 	ret=$?
 	if [ $ret -eq 0 -a -n $ii ]; then
 		echo "Comparing $i to $ii"
-		cmp -s $i $ii
+		cmp -s "./bin/$i" $ii
 		ret=$?
 	fi
 	if [ $ret -eq 1 ]; then
