@@ -3,7 +3,7 @@
 echo "Onsite Data Recorder Setup Utility"
 
 echo "Checking prerequisites..."
-PREREQ=(tar bzip2 ssh ssh-keygen crontab awk sed bc logger screen)
+PREREQ=(tar bzip2 ssh ssh-keygen crontab awk sed logger screen)
 L1="            "
 L2="                   "
 for i in ${PREREQ[*]}; do
