@@ -2,9 +2,7 @@
 
 . $HOME/.config/odr/odr.conf
 
-j=`date "+%s"`
-e=`echo "$j-($REMOVE*24*3600)" | bc -l`
-l=`date -d @"$e" "+%F" | sed -e "s/-/./g"`
+l=`date --date="-$REMOVE day" +%Y.%M.%d`
 
 if [ -d "$DATA/$l" ]
 then
