@@ -31,7 +31,8 @@ mkdir $perfdir
 CMD="portperfshow -tx -rx -t $DELAY"
 echo -n "$CMD *** " > $perfdir/portperf.out.$DATE 2>&1
 $CLI $ip date >> $perfdir/portperf.out.$DATE 2>&1
-timeout $((DELAY * ITER)) $CLI $ip $CMD >> $perfdir/portperf.out.$DATE 2>&1
+screen -dmS getperf-brocade -L -Logfile $perfdir/portperf.out.$DATE timeout $((DELAY * ITER)) $CLI -t $ip $CMD
+sleep $((DELAY * ITER))
 
 # Get switch config
 datetime=`date +"%Y-%m-%d-%H%M"`
