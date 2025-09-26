@@ -36,7 +36,7 @@ sleep $((DELAY * ITER))
 
 # Get switch config
 datetime=`date +"%Y-%m-%d-%H%M"`
-getconfig-brocade.sh $ip 2>&1 > config-$switch-$DAY-$datetime
+$HOME/.local/bin/getconfig-brocade.sh $ip 2>&1 > config-$switch-$DAY-$datetime
 
 # Pack data
 tar -cjf ${perfdir}.tbz2 $perfdir config-$switch-$DAY-$datetime
