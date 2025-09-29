@@ -9,17 +9,37 @@
 # IP of the Brocade switch to collect for
 ip=$1
 
-commands=("switchshow" \
-    "fabricshow" \
+commands=(
+	"date" \
+    "showipaddr" \
+    "tsclockserver" \
+    "dnsconfig --show" \
     "firmwareshow" \
+    "licenseshow" \
+    "license --show" \
+    "chassisshow" \
+	"switchshow" \
+    "fabricshow" \
+    "ag --modeshow" \
+	"agshow --all" \
     "fdmishow" \
     "nsshow" \
-    "zone --validate" \
-    "licenseshow" \
-    "sfpshow" \
+    "defzone --show" \
+    "cfgshow" \
+    "zoneshow --validate" \
+    "islshow" \
+    "trunkshow" \
+    "porttrunkarea --show all" \
+    "porttrunkarea --show trunk" \
+    "portcfgshow" \
+    "sfpshow -health" \
     "sfpshow -all" \
-    "showipaddr" \
-    "chassisshow")
+    "porterrshow" \
+    "sensorshow" \
+    "userconfig --show -a" \
+    "clihistory" \
+    "errdump -a" \
+)
 
 #SN=`$CLI $ip chassisshow | grep "Serial Num" | awk '{print $NF}' | tail -n 1`
 
